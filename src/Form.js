@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const Form = (props) => {
   const handleUsernameChange = (event) => {
     props.setUsername(event.target.value);
@@ -15,6 +17,16 @@ const Form = (props) => {
     props.setConfirmPassword(event.target.value);
   };
 
+  const handleIconChange = (event) => {
+    if (props.iconChange === "eye") {
+      props.setIconChange("eye-slash");
+      props.setPasswordVisibility("text");
+    } else {
+      props.setIconChange("eye");
+      props.setPasswordVisibility("password");
+    }
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (props.password === props.confirmPassword) {
@@ -29,7 +41,7 @@ const Form = (props) => {
     <form className={props.form} onSubmit={handleSubmit}>
       <label htmlFor="username">Username</label>
       <input
-        type="text"
+        type={props.passwordVisibility}
         id="username"
         name="username"
         placeholder="Username"
@@ -48,24 +60,38 @@ const Form = (props) => {
       ></input>
 
       <label htmlFor="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Password"
-        value={props.password}
-        onChange={handlePasswordChange}
-      ></input>
+      <div className="inputContainer">
+        <input
+          type={props.passwordVisibility}
+          id="password"
+          name="password"
+          placeholder="Password"
+          value={props.password}
+          onChange={handlePasswordChange}
+        ></input>
+        <FontAwesomeIcon
+          className="eye"
+          icon={props.iconChange}
+          onClick={handleIconChange}
+        />
+      </div>
 
       <label htmlFor="confirmPassword">Confirm password</label>
-      <input
-        type="password"
-        id="confirm-password"
-        placeholder="Confirm password"
-        name="confirmPassword"
-        value={props.confirmPassword}
-        onChange={handleConfirmPasswordChange}
-      ></input>
+      <div className="inputContainer">
+        <input
+          type="password"
+          id="confirm-password"
+          placeholder="Confirm password"
+          name="confirmPassword"
+          value={props.confirmPassword}
+          onChange={handleConfirmPasswordChange}
+        ></input>
+        <FontAwesomeIcon
+          className="eye"
+          icon={props.iconChange}
+          onClick={handleIconChange}
+        />
+      </div>
 
       <button type="submit">Register</button>
     </form>
