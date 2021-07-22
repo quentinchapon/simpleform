@@ -1,0 +1,74 @@
+.createAccount {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 300px;
+  box-shadow: 0 0 20px lightgrey;
+}
+
+h1 {
+  margin-bottom: 50px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+form label {
+  margin-bottom: 5px;
+}
+
+form input {
+  margin-bottom: 20px;
+  padding-left: 10px;
+  height: 40px;
+  border-radius: 100px;
+  border: 1px solid lightgray;
+}
+
+::placeholder {
+  color: lightgrey;
+}
+
+form button {
+  margin-bottom: 20px;
+  height: 40px;
+  border-radius: 100px;
+  border: none;
+  color: white;
+  background-color: lightskyblue;
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+  background-color: lightpink;
+}
+
+.confirmationModale {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  box-shadow: 0 0 20px lightgrey;
+}
